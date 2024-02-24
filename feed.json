@@ -7,6 +7,28 @@
     "home_page_url": "http://example.com",
     "items": [
         {
+            "id": "http://example.com/2024/02/24/neural_network/transformer/",
+            "url": "http://example.com/2024/02/24/neural_network/transformer/",
+            "title": "Transformer 备忘录",
+            "date_published": "2024-02-23T16:00:00.000Z",
+            "content_html": "<ol>\n<li>\n<p>为什么选择 Transformer<br>\nNLP 任务需要编码器抽取上下文的特征<br>\n上下文的语义很重要，每个词的语义和上下文强相关<br>\n方向<br>\n RNN 只能对句子进行单向的编码<br>\n CNN 只能对短句子进行编码<br>\n Transformer 可以双向编码，也抽取长距离的特征<br>\n顺序（词的位置变换了会产生不同的意思）<br>\n速度<br>\n RNN 无法并行处理序列，其他都行</p>\n</li>\n<li>\n<p>多头自注意力模块<br>\n首先对输入进行 projection，得到 QKV 三个矩阵<br>\n（tf 对输入进行了降维 (B, L, D) -&gt; (B<em>L, D)）<br>\n初始化三个 dense 层 (B</em>L, D) -&gt; (B<em>L, N</em>H) N 为 attention 模块的数量，H 为长度<br>\n为什么要在这个进行投影呢？<br>\n若不投影，在之后的注意力模块中，相同的 Q 和 V 会进行点积，使得 attention 矩阵对角线的分数特别高（自己和自己的分数？），每个词的注意力都在自己身上，无法获得上下文的关系。所以需要将 QKV 投影到不同的空间中，增加多样性。</p>\n<p>之后进行 reshape, (B<em>L, N</em>H) -&gt; (B, N, L, H)<br>\n 为什么要用多注意力头呢？<br>\n希望不同的注意力头学到不同的特征，和 CNN 里的 multi-channel 类似</p>\n<p>多不同的注意力头进行点积、转置<br>\n为什么要用乘法呢？（为什么不用加性 attention 呢？）<br>\n在 GPU 的场景下，矩阵乘法的效率更高，随着 D 的增大，加性 attention 的效果会更好<br>\n为什么要除以√D 呢？<br>\n两个的矩阵相乘之后方差会变大，使得有些词注意力很大有些很小，经过 softmax 之后再求导会导致梯度很小，不利于优化，除了之后可以平滑一下。e.g. N (0, √d)*N (0, √d) = N (0, d) -&gt; / √d -&gt; N (0, 1)。</p>\n<p>乘 mask 矩阵（正常 token 的值为 0，要丢弃的 token 值为 1w）使得正常 token 的值维持原状，被丢弃的 token 值很小。使得进过 softmax 之后，不想要被注意的值无限趋于 0</p>\n<p>进行 softmax 归一化得到注意力分数</p>\n<p>用 V 矩阵和注意力分数进行加权，再把不同头的分数合并起来</p>\n</li>\n<li>\n<p>残差连接 &amp; Normalisation<br>\n 相加操作与 ResNet 相似，相当于在求导时加了一个恒等项，减少梯度消失的问题</p>\n<p>Layer_Norm<br>\n 提升神经网络的泛化性<br>\n（数据的分布对模型可能会有很大的影响）<br>\n所以需要将隐藏层的输出都归一化成均值为 0 方差为 1 的分布<br>\n更好的利用模型在训练集中收获的知识<br>\n norm 放在激活函数之前，避免数据落入饱和区，减少梯度消失的问题<br>\n（实际操作时会初始化一个新的均值和方差，调整分布，增加多样性）</p>\n<pre><code> NLP的序列是变长的，Batch_Norm在对不同样本的同一个位置去做归一化时，无法获得真实分布的统计值。\n Layer_Norm会对同一个样本每一个位置的不同特征做归一化\n\n\n \n\n Normalisation可以放在不同的地方\n     Post-LayerNorm先做残差再归一化\n         保持主干网络的方差比较稳定，使模型泛化能力更强。\n         但把恒等的路径放在norm里，会导致模型更难收敛。\n     Pre-LayerNorm先归一化再做残差\n         更容易收敛，但只是增加了网络的宽度而不是深度，效果没有前者好。\n</code></pre>\n</li>\n<li>\n<p>Positionwise FFN (Feed Forward Network)<br>\n 提供了非线性变换，提升拟合能力 (1*1 卷积核的全连接层)。<br>\n激活层从 ReLU 变成了 GeLU，引入了正则的思想，越小的值越可能被丢弃掉，相当于 ReLU 和 dropout 的结合。<br>\ntanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消失的问题。</p>\n</li>\n</ol>\n",
+            "tags": [
+                "神经网络",
+                "自然语言处理"
+            ]
+        },
+        {
+            "id": "http://example.com/2024/02/24/projects/alzheimer/",
+            "url": "http://example.com/2024/02/24/projects/alzheimer/",
+            "title": "Alzheimer’s Disease Detection using Disfluencies Implemented Fine-Tuning BERT Model Ensemble",
+            "date_published": "2024-02-23T16:00:00.000Z",
+            "content_html": "<ol>\n<li>背景介绍<br>\n使用原始的、未注释的、未转录的语音进行目标认知状态预测，并解决认知随时间变化的预测。</li>\n</ol>\n<p>address 挑战：阿尔茨海默氏痴呆症识别仅通过自发语言</p>\n<ul>\n<li>从一个简短的演讲中检测阿尔茨海默氏痴呆症</li>\n<li>认知测试分数的推断，MMSE 分数。</li>\n<li>预测认知能力下降</li>\n</ul>\n<p>任务:<br>\n 从一个简短的演讲中检测阿尔茨海默氏痴呆症</p>\n<p>可能的一般方法:</p>\n<ul>\n<li>直接使用语音信号 (声学特征)</li>\n<li>语音自动转换为文本 (ASR)，并从脚本中提取语言特征</li>\n</ul>\n<p>更好的解决方案:<br>\n 结合声学和语言特征，利用预训练 BERT 模型。</p>\n",
+            "tags": [
+                "科研项目",
+                "自然语言处理"
+            ]
+        },
+        {
             "id": "http://example.com/2024/02/18/hello-world/",
             "url": "http://example.com/2024/02/18/hello-world/",
             "title": "Hello World",
