@@ -11,9 +11,37 @@
     <updated>2024-02-23T16:00:00.000Z</updated>
     <category term="博客 笔记" />
     <entry>
-        <id>http://example.com/2024/02/24/neural_network/transformer/</id>
+        <id>http://example.com/projects/alzheimer/</id>
+        <title>Alzheimer’s Disease Detection using Disfluencies Implemented Fine-Tuning BERT Model Ensemble</title>
+        <link rel="alternate" href="http://example.com/projects/alzheimer/"/>
+        <content type="html">&lt;ol&gt;
+&lt;li&gt;背景介绍&lt;br&gt;
+使用原始的、未注释的、未转录的语音进行目标认知状态预测，并解决认知随时间变化的预测。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;address 挑战：阿尔茨海默氏痴呆症识别仅通过自发语言&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从一个简短的演讲中检测阿尔茨海默氏痴呆症&lt;/li&gt;
+&lt;li&gt;认知测试分数的推断，MMSE 分数。&lt;/li&gt;
+&lt;li&gt;预测认知能力下降&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;任务:&lt;br&gt;
+ 从一个简短的演讲中检测阿尔茨海默氏痴呆症&lt;/p&gt;
+&lt;p&gt;可能的一般方法:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接使用语音信号 (声学特征)&lt;/li&gt;
+&lt;li&gt;语音自动转换为文本 (ASR)，并从脚本中提取语言特征&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更好的解决方案:&lt;br&gt;
+ 结合声学和语言特征，利用预训练 BERT 模型。&lt;/p&gt;
+</content>
+        <category term="科研项目" scheme="http://example.com/categories/projects/" />
+        <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
+        <updated>2024-02-23T16:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/neural_network/transformer/</id>
         <title>Transformer 备忘录</title>
-        <link rel="alternate" href="http://example.com/2024/02/24/neural_network/transformer/"/>
+        <link rel="alternate" href="http://example.com/neural_network/transformer/"/>
         <content type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;为什么选择 Transformer&lt;br&gt;
@@ -83,37 +111,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
         <updated>2024-02-23T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2024/02/24/projects/alzheimer/</id>
-        <title>Alzheimer’s Disease Detection using Disfluencies Implemented Fine-Tuning BERT Model Ensemble</title>
-        <link rel="alternate" href="http://example.com/2024/02/24/projects/alzheimer/"/>
-        <content type="html">&lt;ol&gt;
-&lt;li&gt;背景介绍&lt;br&gt;
-使用原始的、未注释的、未转录的语音进行目标认知状态预测，并解决认知随时间变化的预测。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;address 挑战：阿尔茨海默氏痴呆症识别仅通过自发语言&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;从一个简短的演讲中检测阿尔茨海默氏痴呆症&lt;/li&gt;
-&lt;li&gt;认知测试分数的推断，MMSE 分数。&lt;/li&gt;
-&lt;li&gt;预测认知能力下降&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;任务:&lt;br&gt;
- 从一个简短的演讲中检测阿尔茨海默氏痴呆症&lt;/p&gt;
-&lt;p&gt;可能的一般方法:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;直接使用语音信号 (声学特征)&lt;/li&gt;
-&lt;li&gt;语音自动转换为文本 (ASR)，并从脚本中提取语言特征&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;更好的解决方案:&lt;br&gt;
- 结合声学和语言特征，利用预训练 BERT 模型。&lt;/p&gt;
-</content>
-        <category term="科研项目" scheme="http://example.com/categories/projects/" />
-        <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
-        <updated>2024-02-23T16:00:00.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://example.com/2024/02/18/hello-world/</id>
+        <id>http://example.com/hello-world/</id>
         <title>Hello World</title>
-        <link rel="alternate" href="http://example.com/2024/02/18/hello-world/"/>
+        <link rel="alternate" href="http://example.com/hello-world/"/>
         <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
 &lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
@@ -132,9 +132,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
         <updated>2024-02-18T10:04:35.837Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2024/02/04/travel/japan/food/</id>
+        <id>http://example.com/travel/japan/food/</id>
         <title>日本行美食总结</title>
-        <link rel="alternate" href="http://example.com/2024/02/04/travel/japan/food/"/>
+        <link rel="alternate" href="http://example.com/travel/japan/food/"/>
         <content type="html">&lt;h1 id=&#34;神户&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#神户&#34;&gt;#&lt;/a&gt; 神户&lt;/h1&gt;
 &lt;h2 id=&#34;くつろぎ家kutsurogiya&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#くつろぎ家kutsurogiya&#34;&gt;#&lt;/a&gt; くつろぎ家（Kutsurogiya）&lt;/h2&gt;
 &lt;p&gt;网红的平价米其林（2016 年米其林推荐），招牌釜饭确实好吃 &lt;strong&gt;『くつろぎ釜飯』&lt;/strong&gt;，内涵鲷鱼鲑鱼章鱼及蔬菜，味道很有层次。网红的蒸和牛 **『湯けむり蒸し』** 是牛肉与蔬菜在小蒸笼里现场蒸制，本身没有调味，即便有酱料蘸碟还是觉得乏善可陈。当地人基本都只点釜饭，点和牛的都是游客。有小碟点心小菜，杏仁豆腐什么的。冬季限定有牡蛎釜饭。&lt;/p&gt;
@@ -185,9 +185,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
         <updated>2024-02-03T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2024/02/04/travel/japan/route/</id>
+        <id>http://example.com/travel/japan/route/</id>
         <title>15天9城特种兵行程总结</title>
-        <link rel="alternate" href="http://example.com/2024/02/04/travel/japan/route/"/>
+        <link rel="alternate" href="http://example.com/travel/japan/route/"/>
         <content type="html">&lt;h1 id=&#34;關西&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#關西&#34;&gt;#&lt;/a&gt; 關西&lt;/h1&gt;
 &lt;p&gt;⌀ 1.21 神戶 DAY1&lt;/p&gt;
 &lt;p&gt;厦门高崎机场 --&amp;gt; 大阪关西机场&lt;/p&gt;
@@ -215,9 +215,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
         <updated>2024-02-03T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2022/05/11/projects/punch_go/</id>
+        <id>http://example.com/projects/punch_go/</id>
         <title>基于以太坊的『Punch Go』去中心化应用(DAPP)</title>
-        <link rel="alternate" href="http://example.com/2022/05/11/projects/punch_go/"/>
+        <link rel="alternate" href="http://example.com/projects/punch_go/"/>
         <content type="html">&lt;h1 id=&#34;背景介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景介绍&#34;&gt;#&lt;/a&gt; 背景介绍&lt;/h1&gt;
 &lt;p&gt;本项目的目标是开发一个去中心化应用 (DAPP) 平台，以促进打孔目标发起者和拥有类似目标的个人之间的联系。目标发起者将通过引入与目标相关的共享价值、设置参与存款要求和指定活动截止日期来发起打孔活动。平台用户可以访问所有正在进行或已经完成的打孔活动。如果活动正在进行，用户可以通过存款指定数量的加密货币来加入。为了保持在打孔活动中的积极性，用户必须每天打孔；如果失败，将导致他们的存款被没收。在每次打孔活动结束时，所有存款将平均分配给每天坚持打孔的用户。&lt;/p&gt;
 &lt;p&gt;我们的项目旨在建立目标发起者和目标追逐者之间的联系，使我们的用户能够在获得金钱奖励的同时实现目标；同时，那些缺乏毅力的人将面临后果。&lt;/p&gt;
@@ -292,9 +292,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
         <updated>2022-05-10T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2021/06/20/travel/xinjiang/xinjiang/</id>
+        <id>http://example.com/travel/xinjiang/xinjiang/</id>
         <title>跨越山海|新疆自驾毕业旅行</title>
-        <link rel="alternate" href="http://example.com/2021/06/20/travel/xinjiang/xinjiang/"/>
+        <link rel="alternate" href="http://example.com/travel/xinjiang/xinjiang/"/>
         <content type="html"></content>
         <category term="旅行日志" scheme="http://example.com/categories/travel/" />
         <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />

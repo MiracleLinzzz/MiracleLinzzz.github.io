@@ -14,9 +14,37 @@
         <lastBuildDate>Sat, 24 Feb 2024 00:00:00 +0800</lastBuildDate>
         <category term="博客 笔记" />
         <item>
-            <guid isPermalink="true">http://example.com/2024/02/24/neural_network/transformer/</guid>
+            <guid isPermalink="true">http://example.com/projects/alzheimer/</guid>
+            <title>Alzheimer’s Disease Detection using Disfluencies Implemented Fine-Tuning BERT Model Ensemble</title>
+            <link>http://example.com/projects/alzheimer/</link>
+            <category term="科研项目" scheme="http://example.com/categories/projects/" />
+            <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
+            <pubDate>Sat, 24 Feb 2024 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;ol&gt;
+&lt;li&gt;背景介绍&lt;br&gt;
+使用原始的、未注释的、未转录的语音进行目标认知状态预测，并解决认知随时间变化的预测。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;address 挑战：阿尔茨海默氏痴呆症识别仅通过自发语言&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从一个简短的演讲中检测阿尔茨海默氏痴呆症&lt;/li&gt;
+&lt;li&gt;认知测试分数的推断，MMSE 分数。&lt;/li&gt;
+&lt;li&gt;预测认知能力下降&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;任务:&lt;br&gt;
+ 从一个简短的演讲中检测阿尔茨海默氏痴呆症&lt;/p&gt;
+&lt;p&gt;可能的一般方法:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接使用语音信号 (声学特征)&lt;/li&gt;
+&lt;li&gt;语音自动转换为文本 (ASR)，并从脚本中提取语言特征&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更好的解决方案:&lt;br&gt;
+ 结合声学和语言特征，利用预训练 BERT 模型。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/neural_network/transformer/</guid>
             <title>Transformer 备忘录</title>
-            <link>http://example.com/2024/02/24/neural_network/transformer/</link>
+            <link>http://example.com/neural_network/transformer/</link>
             <category term="神经网络" scheme="http://example.com/categories/neural-network/" />
             <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
             <pubDate>Sat, 24 Feb 2024 00:00:00 +0800</pubDate>
@@ -86,37 +114,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2024/02/24/projects/alzheimer/</guid>
-            <title>Alzheimer’s Disease Detection using Disfluencies Implemented Fine-Tuning BERT Model Ensemble</title>
-            <link>http://example.com/2024/02/24/projects/alzheimer/</link>
-            <category term="科研项目" scheme="http://example.com/categories/projects/" />
-            <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
-            <pubDate>Sat, 24 Feb 2024 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;ol&gt;
-&lt;li&gt;背景介绍&lt;br&gt;
-使用原始的、未注释的、未转录的语音进行目标认知状态预测，并解决认知随时间变化的预测。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;address 挑战：阿尔茨海默氏痴呆症识别仅通过自发语言&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;从一个简短的演讲中检测阿尔茨海默氏痴呆症&lt;/li&gt;
-&lt;li&gt;认知测试分数的推断，MMSE 分数。&lt;/li&gt;
-&lt;li&gt;预测认知能力下降&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;任务:&lt;br&gt;
- 从一个简短的演讲中检测阿尔茨海默氏痴呆症&lt;/p&gt;
-&lt;p&gt;可能的一般方法:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;直接使用语音信号 (声学特征)&lt;/li&gt;
-&lt;li&gt;语音自动转换为文本 (ASR)，并从脚本中提取语言特征&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;更好的解决方案:&lt;br&gt;
- 结合声学和语言特征，利用预训练 BERT 模型。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://example.com/2024/02/18/hello-world/</guid>
+            <guid isPermalink="true">http://example.com/hello-world/</guid>
             <title>Hello World</title>
-            <link>http://example.com/2024/02/18/hello-world/</link>
+            <link>http://example.com/hello-world/</link>
             <pubDate>Sun, 18 Feb 2024 18:04:35 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
@@ -135,9 +135,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2024/02/04/travel/japan/food/</guid>
+            <guid isPermalink="true">http://example.com/travel/japan/food/</guid>
             <title>日本行美食总结</title>
-            <link>http://example.com/2024/02/04/travel/japan/food/</link>
+            <link>http://example.com/travel/japan/food/</link>
             <category term="旅行日志" scheme="http://example.com/categories/travel/" />
             <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
             <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
@@ -188,9 +188,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2024/02/04/travel/japan/route/</guid>
+            <guid isPermalink="true">http://example.com/travel/japan/route/</guid>
             <title>15天9城特种兵行程总结</title>
-            <link>http://example.com/2024/02/04/travel/japan/route/</link>
+            <link>http://example.com/travel/japan/route/</link>
             <category term="旅行日志" scheme="http://example.com/categories/travel/" />
             <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
             <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
@@ -218,9 +218,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2022/05/11/projects/punch_go/</guid>
+            <guid isPermalink="true">http://example.com/projects/punch_go/</guid>
             <title>基于以太坊的『Punch Go』去中心化应用(DAPP)</title>
-            <link>http://example.com/2022/05/11/projects/punch_go/</link>
+            <link>http://example.com/projects/punch_go/</link>
             <category term="科研项目" scheme="http://example.com/categories/projects/" />
             <category term="区块链" scheme="http://example.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" />
             <category term="开发" scheme="http://example.com/tags/%E5%BC%80%E5%8F%91/" />
@@ -295,9 +295,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2021/06/20/travel/xinjiang/xinjiang/</guid>
+            <guid isPermalink="true">http://example.com/travel/xinjiang/xinjiang/</guid>
             <title>跨越山海|新疆自驾毕业旅行</title>
-            <link>http://example.com/2021/06/20/travel/xinjiang/xinjiang/</link>
+            <link>http://example.com/travel/xinjiang/xinjiang/</link>
             <category term="旅行日志" scheme="http://example.com/categories/travel/" />
             <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
             <pubDate>Sun, 20 Jun 2021 00:00:00 +0800</pubDate>
