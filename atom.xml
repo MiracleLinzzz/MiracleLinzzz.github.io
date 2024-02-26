@@ -11,6 +11,78 @@
     <updated>2024-02-23T16:00:00.000Z</updated>
     <category term="博客 笔记" />
     <entry>
+        <id>http://example.com/2024/02/24/neural_network/transformer/</id>
+        <title>Transformer 备忘录</title>
+        <link rel="alternate" href="http://example.com/2024/02/24/neural_network/transformer/"/>
+        <content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;为什么选择 Transformer&lt;br&gt;
+NLP 任务需要编码器抽取上下文的特征&lt;br&gt;
+上下文的语义很重要，每个词的语义和上下文强相关&lt;br&gt;
+方向&lt;br&gt;
+ RNN 只能对句子进行单向的编码&lt;br&gt;
+ CNN 只能对短句子进行编码&lt;br&gt;
+ Transformer 可以双向编码，也抽取长距离的特征&lt;br&gt;
+顺序（词的位置变换了会产生不同的意思）&lt;br&gt;
+速度&lt;br&gt;
+ RNN 无法并行处理序列，其他都行&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多头自注意力模块&lt;br&gt;
+首先对输入进行 projection，得到 QKV 三个矩阵&lt;br&gt;
+（tf 对输入进行了降维 (B, L, D) -&amp;gt; (B&lt;em&gt;L, D)）&lt;br&gt;
+初始化三个 dense 层 (B&lt;/em&gt;L, D) -&amp;gt; (B&lt;em&gt;L, N&lt;/em&gt;H) N 为 attention 模块的数量，H 为长度&lt;br&gt;
+为什么要在这个进行投影呢？&lt;br&gt;
+若不投影，在之后的注意力模块中，相同的 Q 和 V 会进行点积，使得 attention 矩阵对角线的分数特别高（自己和自己的分数？），每个词的注意力都在自己身上，无法获得上下文的关系。所以需要将 QKV 投影到不同的空间中，增加多样性。&lt;/p&gt;
+&lt;p&gt;之后进行 reshape, (B&lt;em&gt;L, N&lt;/em&gt;H) -&amp;gt; (B, N, L, H)&lt;br&gt;
+ 为什么要用多注意力头呢？&lt;br&gt;
+希望不同的注意力头学到不同的特征，和 CNN 里的 multi-channel 类似&lt;/p&gt;
+&lt;p&gt;多不同的注意力头进行点积、转置&lt;br&gt;
+为什么要用乘法呢？（为什么不用加性 attention 呢？）&lt;br&gt;
+在 GPU 的场景下，矩阵乘法的效率更高，随着 D 的增大，加性 attention 的效果会更好&lt;br&gt;
+为什么要除以√D 呢？&lt;br&gt;
+两个的矩阵相乘之后方差会变大，使得有些词注意力很大有些很小，经过 softmax 之后再求导会导致梯度很小，不利于优化，除了之后可以平滑一下。e.g. N (0, √d)*N (0, √d) = N (0, d) -&amp;gt; / √d -&amp;gt; N (0, 1)。&lt;/p&gt;
+&lt;p&gt;乘 mask 矩阵（正常 token 的值为 0，要丢弃的 token 值为 1w）使得正常 token 的值维持原状，被丢弃的 token 值很小。使得进过 softmax 之后，不想要被注意的值无限趋于 0&lt;/p&gt;
+&lt;p&gt;进行 softmax 归一化得到注意力分数&lt;/p&gt;
+&lt;p&gt;用 V 矩阵和注意力分数进行加权，再把不同头的分数合并起来&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;残差连接 &amp;amp; Normalisation&lt;br&gt;
+ 相加操作与 ResNet 相似，相当于在求导时加了一个恒等项，减少梯度消失的问题&lt;/p&gt;
+&lt;p&gt;Layer_Norm&lt;br&gt;
+ 提升神经网络的泛化性&lt;br&gt;
+（数据的分布对模型可能会有很大的影响）&lt;br&gt;
+所以需要将隐藏层的输出都归一化成均值为 0 方差为 1 的分布&lt;br&gt;
+更好的利用模型在训练集中收获的知识&lt;br&gt;
+ norm 放在激活函数之前，避免数据落入饱和区，减少梯度消失的问题&lt;br&gt;
+（实际操作时会初始化一个新的均值和方差，调整分布，增加多样性）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; NLP的序列是变长的，Batch_Norm在对不同样本的同一个位置去做归一化时，无法获得真实分布的统计值。
+ Layer_Norm会对同一个样本每一个位置的不同特征做归一化
+
+
+ 
+
+ Normalisation可以放在不同的地方
+     Post-LayerNorm先做残差再归一化
+         保持主干网络的方差比较稳定，使模型泛化能力更强。
+         但把恒等的路径放在norm里，会导致模型更难收敛。
+     Pre-LayerNorm先归一化再做残差
+         更容易收敛，但只是增加了网络的宽度而不是深度，效果没有前者好。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Positionwise FFN (Feed Forward Network)&lt;br&gt;
+ 提供了非线性变换，提升拟合能力 (1*1 卷积核的全连接层)。&lt;br&gt;
+激活层从 ReLU 变成了 GeLU，引入了正则的思想，越小的值越可能被丢弃掉，相当于 ReLU 和 dropout 的结合。&lt;br&gt;
+tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消失的问题。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="神经网络" scheme="http://example.com/categories/neural-network/" />
+        <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
+        <updated>2024-02-23T16:00:00.000Z</updated>
+    </entry>
+    <entry>
         <id>http://example.com/2024/02/24/projects/alzheimer/</id>
         <title>Alzheimer’s Disease Detection using Disfluencies Implemented Fine-Tuning BERT Model Ensemble</title>
         <link rel="alternate" href="http://example.com/2024/02/24/projects/alzheimer/"/>
@@ -40,7 +112,7 @@
     </entry>
     <entry>
         <id>http://example.com/2024/02/24/projects/punch_%20go/</id>
-        <title>基于以太坊的『赤賀正』Punch Go”去中心化应用(DAPP)</title>
+        <title>基于以太坊的『Punch Go』去中心化应用(DAPP)</title>
         <link rel="alternate" href="http://example.com/2024/02/24/projects/punch_%20go/"/>
         <content type="html">&lt;h1 id=&#34;背景介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景介绍&#34;&gt;#&lt;/a&gt; 背景介绍&lt;/h1&gt;
 &lt;p&gt;本项目的目标是开发一个去中心化应用 (DAPP) 平台，以促进打孔目标发起者和拥有类似目标的个人之间的联系。目标发起者将通过引入与目标相关的共享价值、设置参与存款要求和指定活动截止日期来发起打孔活动。平台用户可以访问所有正在进行或已经完成的打孔活动。如果活动正在进行，用户可以通过存款指定数量的加密货币来加入。为了保持在打孔活动中的积极性，用户必须每天打孔；如果失败，将导致他们的存款被没收。在每次打孔活动结束时，所有存款将平均分配给每天坚持打孔的用户。&lt;/p&gt;
@@ -116,78 +188,6 @@
         <updated>2024-02-23T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2024/02/24/neural_network/transformer/</id>
-        <title>Transformer 备忘录</title>
-        <link rel="alternate" href="http://example.com/2024/02/24/neural_network/transformer/"/>
-        <content type="html">&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;为什么选择 Transformer&lt;br&gt;
-NLP 任务需要编码器抽取上下文的特征&lt;br&gt;
-上下文的语义很重要，每个词的语义和上下文强相关&lt;br&gt;
-方向&lt;br&gt;
- RNN 只能对句子进行单向的编码&lt;br&gt;
- CNN 只能对短句子进行编码&lt;br&gt;
- Transformer 可以双向编码，也抽取长距离的特征&lt;br&gt;
-顺序（词的位置变换了会产生不同的意思）&lt;br&gt;
-速度&lt;br&gt;
- RNN 无法并行处理序列，其他都行&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;多头自注意力模块&lt;br&gt;
-首先对输入进行 projection，得到 QKV 三个矩阵&lt;br&gt;
-（tf 对输入进行了降维 (B, L, D) -&amp;gt; (B&lt;em&gt;L, D)）&lt;br&gt;
-初始化三个 dense 层 (B&lt;/em&gt;L, D) -&amp;gt; (B&lt;em&gt;L, N&lt;/em&gt;H) N 为 attention 模块的数量，H 为长度&lt;br&gt;
-为什么要在这个进行投影呢？&lt;br&gt;
-若不投影，在之后的注意力模块中，相同的 Q 和 V 会进行点积，使得 attention 矩阵对角线的分数特别高（自己和自己的分数？），每个词的注意力都在自己身上，无法获得上下文的关系。所以需要将 QKV 投影到不同的空间中，增加多样性。&lt;/p&gt;
-&lt;p&gt;之后进行 reshape, (B&lt;em&gt;L, N&lt;/em&gt;H) -&amp;gt; (B, N, L, H)&lt;br&gt;
- 为什么要用多注意力头呢？&lt;br&gt;
-希望不同的注意力头学到不同的特征，和 CNN 里的 multi-channel 类似&lt;/p&gt;
-&lt;p&gt;多不同的注意力头进行点积、转置&lt;br&gt;
-为什么要用乘法呢？（为什么不用加性 attention 呢？）&lt;br&gt;
-在 GPU 的场景下，矩阵乘法的效率更高，随着 D 的增大，加性 attention 的效果会更好&lt;br&gt;
-为什么要除以√D 呢？&lt;br&gt;
-两个的矩阵相乘之后方差会变大，使得有些词注意力很大有些很小，经过 softmax 之后再求导会导致梯度很小，不利于优化，除了之后可以平滑一下。e.g. N (0, √d)*N (0, √d) = N (0, d) -&amp;gt; / √d -&amp;gt; N (0, 1)。&lt;/p&gt;
-&lt;p&gt;乘 mask 矩阵（正常 token 的值为 0，要丢弃的 token 值为 1w）使得正常 token 的值维持原状，被丢弃的 token 值很小。使得进过 softmax 之后，不想要被注意的值无限趋于 0&lt;/p&gt;
-&lt;p&gt;进行 softmax 归一化得到注意力分数&lt;/p&gt;
-&lt;p&gt;用 V 矩阵和注意力分数进行加权，再把不同头的分数合并起来&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;残差连接 &amp;amp; Normalisation&lt;br&gt;
- 相加操作与 ResNet 相似，相当于在求导时加了一个恒等项，减少梯度消失的问题&lt;/p&gt;
-&lt;p&gt;Layer_Norm&lt;br&gt;
- 提升神经网络的泛化性&lt;br&gt;
-（数据的分布对模型可能会有很大的影响）&lt;br&gt;
-所以需要将隐藏层的输出都归一化成均值为 0 方差为 1 的分布&lt;br&gt;
-更好的利用模型在训练集中收获的知识&lt;br&gt;
- norm 放在激活函数之前，避免数据落入饱和区，减少梯度消失的问题&lt;br&gt;
-（实际操作时会初始化一个新的均值和方差，调整分布，增加多样性）&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; NLP的序列是变长的，Batch_Norm在对不同样本的同一个位置去做归一化时，无法获得真实分布的统计值。
- Layer_Norm会对同一个样本每一个位置的不同特征做归一化
-
-
- 
-
- Normalisation可以放在不同的地方
-     Post-LayerNorm先做残差再归一化
-         保持主干网络的方差比较稳定，使模型泛化能力更强。
-         但把恒等的路径放在norm里，会导致模型更难收敛。
-     Pre-LayerNorm先归一化再做残差
-         更容易收敛，但只是增加了网络的宽度而不是深度，效果没有前者好。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Positionwise FFN (Feed Forward Network)&lt;br&gt;
- 提供了非线性变换，提升拟合能力 (1*1 卷积核的全连接层)。&lt;br&gt;
-激活层从 ReLU 变成了 GeLU，引入了正则的思想，越小的值越可能被丢弃掉，相当于 ReLU 和 dropout 的结合。&lt;br&gt;
-tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消失的问题。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-        <category term="神经网络" scheme="http://example.com/categories/neural-network/" />
-        <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
-        <updated>2024-02-23T16:00:00.000Z</updated>
-    </entry>
-    <entry>
         <id>http://example.com/2024/02/18/hello-world/</id>
         <title>Hello World</title>
         <link rel="alternate" href="http://example.com/2024/02/18/hello-world/"/>
@@ -207,6 +207,36 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
 &lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
 </content>
         <updated>2024-02-18T10:04:35.837Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2024/02/04/travel/japan/route/</id>
+        <title>15天9城特种兵行程总结</title>
+        <link rel="alternate" href="http://example.com/2024/02/04/travel/japan/route/"/>
+        <content type="html">&lt;h1 id=&#34;關西&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#關西&#34;&gt;#&lt;/a&gt; 關西&lt;/h1&gt;
+&lt;p&gt;⌀ 1.21 神戶 DAY1&lt;/p&gt;
+&lt;p&gt;厦门高崎机场 --&amp;gt; 大阪关西机场&lt;/p&gt;
+&lt;p&gt;⌀ 1.22 大阪 DAY2 市內景點走走&lt;/p&gt;
+&lt;p&gt;⌀ 1.23 大阪 DAY3 環球影城？？or 機動&lt;/p&gt;
+&lt;p&gt;⌀ 1.24 京都 DAY4 市內走走&lt;/p&gt;
+&lt;p&gt;⌀ 1.25 京都 DAY5 市周圍走走？ 可以嵐山 或者宇治&lt;/p&gt;
+&lt;p&gt;⌀ 1.26 奈良 DAY6&lt;/p&gt;
+&lt;p&gt;⌀ 1.27 名古屋 DAY7 真不一定去吧 可以換箱根或者鐮倉？或者加到東京去&lt;/p&gt;
+&lt;h1 id=&#34;關東&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#關東&#34;&gt;#&lt;/a&gt; 關東&lt;/h1&gt;
+&lt;p&gt;⌀ 1.28 富士山 DAY1&lt;/p&gt;
+&lt;p&gt;⌀ 1.29 東京 DAY2 淺草寺 晴空塔 秋葉原 新宿歌舞町 天空樹&lt;/p&gt;
+&lt;p&gt;⌀ 1.30 東京 DAY3 東京塔 明治神宮 代代木公園 澀谷 sky 穿插&lt;/p&gt;
+&lt;p&gt;⌀ 1.31 東京 DAY4 機動 下午或晚上需要到達坐船點或者飛機點&lt;/p&gt;
+&lt;h1 id=&#34;北海道&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#北海道&#34;&gt;#&lt;/a&gt; 北海道&lt;/h1&gt;
+&lt;p&gt;⌀ 2.1 札幌 DAY1 市中心走景點：圆山动物园→北海道神宫→白色恋人工厂→JR 塔展望室 T38 (夜景)→  狸小路 → 二条市场→札幌电视塔（大通公园 / 札幌钟楼）→ 中岛公园（或头大佛）→ 藻岩山展望台 (夜景)&lt;/p&gt;
+&lt;p&gt;⌀ 2.2 札幌 DAY2 找個交通好一點的地方滑雪 酒店可不變 （19 號來的人該走了）&lt;/p&gt;
+&lt;p&gt;⌀ 2.3 小樽 DAY3 市中心走 可以住小樽或者札幌 情懷散步&lt;/p&gt;
+&lt;p&gt;⌀ 登別 DAY4&lt;/p&gt;
+&lt;p&gt;⌀ 函館 DAY5&lt;/p&gt;
+</content>
+        <category term="旅行日志" scheme="http://example.com/categories/travel/" />
+        <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
+        <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
+        <updated>2024-02-03T16:00:00.000Z</updated>
     </entry>
     <entry>
         <id>http://example.com/2024/02/04/travel/japan/food/</id>
@@ -259,36 +289,6 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
         <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
         <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
         <category term="唯有美食与爱不可辜负" scheme="http://example.com/tags/%E5%94%AF%E6%9C%89%E7%BE%8E%E9%A3%9F%E4%B8%8E%E7%88%B1%E4%B8%8D%E5%8F%AF%E8%BE%9C%E8%B4%9F/" />
-        <updated>2024-02-03T16:00:00.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://example.com/2024/02/04/travel/japan/route/</id>
-        <title>15天9城特种兵行程总结</title>
-        <link rel="alternate" href="http://example.com/2024/02/04/travel/japan/route/"/>
-        <content type="html">&lt;h1 id=&#34;關西&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#關西&#34;&gt;#&lt;/a&gt; 關西&lt;/h1&gt;
-&lt;p&gt;⌀ 1.21 神戶 DAY1&lt;/p&gt;
-&lt;p&gt;厦门高崎机场 --&amp;gt; 大阪关西机场&lt;/p&gt;
-&lt;p&gt;⌀ 1.22 大阪 DAY2 市內景點走走&lt;/p&gt;
-&lt;p&gt;⌀ 1.23 大阪 DAY3 環球影城？？or 機動&lt;/p&gt;
-&lt;p&gt;⌀ 1.24 京都 DAY4 市內走走&lt;/p&gt;
-&lt;p&gt;⌀ 1.25 京都 DAY5 市周圍走走？ 可以嵐山 或者宇治&lt;/p&gt;
-&lt;p&gt;⌀ 1.26 奈良 DAY6&lt;/p&gt;
-&lt;p&gt;⌀ 1.27 名古屋 DAY7 真不一定去吧 可以換箱根或者鐮倉？或者加到東京去&lt;/p&gt;
-&lt;h1 id=&#34;關東&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#關東&#34;&gt;#&lt;/a&gt; 關東&lt;/h1&gt;
-&lt;p&gt;⌀ 1.28 富士山 DAY1&lt;/p&gt;
-&lt;p&gt;⌀ 1.29 東京 DAY2 淺草寺 晴空塔 秋葉原 新宿歌舞町 天空樹&lt;/p&gt;
-&lt;p&gt;⌀ 1.30 東京 DAY3 東京塔 明治神宮 代代木公園 澀谷 sky 穿插&lt;/p&gt;
-&lt;p&gt;⌀ 1.31 東京 DAY4 機動 下午或晚上需要到達坐船點或者飛機點&lt;/p&gt;
-&lt;h1 id=&#34;北海道&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#北海道&#34;&gt;#&lt;/a&gt; 北海道&lt;/h1&gt;
-&lt;p&gt;⌀ 2.1 札幌 DAY1 市中心走景點：圆山动物园→北海道神宫→白色恋人工厂→JR 塔展望室 T38 (夜景)→  狸小路 → 二条市场→札幌电视塔（大通公园 / 札幌钟楼）→ 中岛公园（或头大佛）→ 藻岩山展望台 (夜景)&lt;/p&gt;
-&lt;p&gt;⌀ 2.2 札幌 DAY2 找個交通好一點的地方滑雪 酒店可不變 （19 號來的人該走了）&lt;/p&gt;
-&lt;p&gt;⌀ 2.3 小樽 DAY3 市中心走 可以住小樽或者札幌 情懷散步&lt;/p&gt;
-&lt;p&gt;⌀ 登別 DAY4&lt;/p&gt;
-&lt;p&gt;⌀ 函館 DAY5&lt;/p&gt;
-</content>
-        <category term="旅行日志" scheme="http://example.com/categories/travel/" />
-        <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
-        <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
         <updated>2024-02-03T16:00:00.000Z</updated>
     </entry>
     <entry>
