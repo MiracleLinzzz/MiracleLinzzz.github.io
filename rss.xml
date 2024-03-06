@@ -410,6 +410,9 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
 &lt;p&gt;timeindex.cleaned 另一个程序正在使用此文件，进程无法访问&lt;br&gt;
 可能由于非正常关闭 Kafka, 导致其无法完成对日志文件完成解锁。将 &amp;quot;kafka-logs&amp;quot; 路径下的文件全部删除重启即可&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目录层级太深或者是目录名字太长可能导致启动失败&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/details&gt;
 &lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/producer.png&#34; alt=&#34;Producer –&amp;gt; Kafka&#34;&gt;&lt;br&gt;
