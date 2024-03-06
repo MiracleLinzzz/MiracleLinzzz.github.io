@@ -302,11 +302,13 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
             <category term="强化学习" scheme="http://example.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" />
             <category term="流处理" scheme="http://example.com/tags/%E6%B5%81%E5%A4%84%E7%90%86/" />
             <category term="Kafka" scheme="http://example.com/tags/Kafka/" />
+            <category term="Zookeeper" scheme="http://example.com/tags/Zookeeper/" />
+            <category term="Spark" scheme="http://example.com/tags/Spark/" />
             <pubDate>Sun, 08 May 2022 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;div class=&#34;note info&#34;&gt;
 &lt;p&gt;可以在此处找到项目的原代码 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL01pcmFjbGVMaW56enovS2Fma2FSZWFsVGltZUNyeXB0b2N1cnJlbmN5&#34;&gt;📍链接&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;h1 id=&#34;背景介绍瞎鸡儿凑字数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景介绍瞎鸡儿凑字数&#34;&gt;#&lt;/a&gt; 背景介绍（&lt;s class=&#34;danger&#34;&gt;瞎鸡儿凑字数&lt;/s&gt;）&lt;/h1&gt;
+&lt;h1 class=&#34;danger&#34; id=&#34;背景介绍~~瞎鸡儿凑字数~~&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景介绍~~瞎鸡儿凑字数~~&#34;&gt;#&lt;/a&gt; 背景介绍～～(瞎鸡儿凑字数～～)&lt;/h1&gt;
 &lt;h2 id=&#34;为什么要用强化学习&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么要用强化学习&#34;&gt;#&lt;/a&gt; 为什么要用强化学习？&lt;/h2&gt;
 &lt;p&gt;股票交易是一种优先考虑短期利润而不是长期回报的投资形式。因此，在进行股票交易时，有必要具备专业知识。大多数股票投资者都知道基本面分析中最常用的财务数据。在此分析的基础上，他们可以进行量化交易。&lt;/p&gt;
 &lt;p&gt;近年来，越来越多的公司试图利用人工智能来建立&lt;span class=&#34;red&#34;&gt;机器学习模型&lt;/span&gt;，以此来改进他们的交易策略。&lt;/p&gt;
@@ -329,10 +331,47 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
 &lt;p&gt;故，金融和经济学领域的强化学习研究通常不会在 “大数据” 背景下进行。&lt;/p&gt;
 &lt;p&gt;金融统计分析与一般的宏观经济学一样，本质上是一门时间序列学科，实时预测更有意义。在回报预测的情况下，我们总是可以创建更大更好的预测数据集。然而，我们感兴趣的结果变量的观测数量是有限的。每日蜡烛数据不足以训练金融领域的强化学习模型。只有时间的流逝才能产生有关股票回报的新数据。如果没有足够的训练集，我们无法可靠地预测复杂的模型。&lt;/p&gt;
 &lt;p&gt;为了解决上述问题，使我们的系统具有更现实的意义和更多的商业价值，我们构建了一个集成深度强化学习模型和 Kafka 流处理方法的高效结构来获取和处理实时股票数据。我们还利用 15 个已实现的实时数据对结构中的数据进行预处理，生成技术指标。此外，通过对新数据的有效性检验，对所设计的系统进行了改进。具体来说，如果当前数据值与前一个数据值的差值不大于 3%，则判定新到达的数据有效。如果不是，当前数据将被前一个数据的值所替换。我们基于 Kafka 流处理的系统的另一大优势是它可以通过几个加密货币公司检索信息，因此它有可能同时处理不同的多种加密货币数据。在这里，我们通过向代理指定主题来获取比特币数据。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/image.png&#34; alt=&#34;&#34; title=&#34;深度强化学习(DRL)模型&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/flowchart.png&#34; alt=&#34;&#34; title=&#34;总体技术栈流程图&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/stream_operations.png&#34; alt=&#34;&#34; title=&#34;流处理模块示意&#34; height=&#34;100px&#34; width=&#34;400px&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;media-container&#34;&gt;&lt;div class=&#34;player&#34; data-type=&#34;video&#34; data-src=&#39;[{&#34;name&#34;:&#34;demo&#34;,&#34;url&#34;:&#34;/assets/stream_processing/demo.mp4&#34;}]&#39;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/image.png&#34; alt=&#34;&amp;quot;深度强化学习(DRL)模型&amp;quot;&#34; title=&#34;深度强化学习(DRL)模型&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;流处理操作流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#流处理操作流程&#34;&gt;#&lt;/a&gt; 流处理操作流程&lt;/h1&gt;
+&lt;p&gt;一旦我们导出了经过训练的强化学习模型，我们就可以通过一系列技术工具构建应用程序来获得实时预测结果。 如下图所示&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/flowchart.png&#34; alt=&#34;&amp;quot;总体技术栈流程图&amp;quot;&#34; title=&#34;总体技术栈流程图&#34;&gt;&lt;/p&gt;
+&lt;p&gt;整个项目流程图可以简单地分为几个部分，包括&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据采集与流数据转换&lt;/li&gt;
+&lt;li&gt;流数据处理&lt;/li&gt;
+&lt;li&gt;流数据预测&lt;/li&gt;
+&lt;li&gt;数据可视化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;环境配置准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境配置准备&#34;&gt;#&lt;/a&gt; 环境配置准备&lt;/h2&gt;
+&lt;p&gt;建议使用 Anaconda 创建虚拟环境&lt;br&gt;
+ &lt;code&gt;conda create -n your_env_name python=x.x&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;keras==2.3.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tensorflow==1.14.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pandas==0.24.2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;numpy==1.16.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tqdm==4.24.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docopt==0.6.2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;coloredlogs==10.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;jupyterlab==1.0.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;altair==4.0.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;seaborn==0.9.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cryptocompare&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;matplotlib&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;pip install -r requirement.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;流处理软件初始化&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#流处理软件初始化&#34;&gt;#&lt;/a&gt; 流处理软件初始化&lt;/h2&gt;
+&lt;div class=&#34;note warning&#34;&gt;
+&lt;p&gt;这个小项目是在个人电脑上运行的 demo，Windows 11 系统。实际运行可能在云平台或虚拟机 Linux 上效果更加，配置操作相应变化。&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;zookeeper&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#zookeeper&#34;&gt;#&lt;/a&gt; Zookeeper&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;官网下载：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96b29rZWVwZXIuYXBhY2hlLm9yZy8=&#34;&gt;https://zookeeper.apache.org/&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;选择自己需要的版本，下载压缩包（本项目是 3.6.3 版本）&lt;/li&gt;
+&lt;li&gt;将压缩包存放在磁盘某位置，路径无中文&lt;/li&gt;
+&lt;li&gt;在 ZooKeeper 的解压缩目录中，找到 conf 文件夹，该文件夹包含了 ZooKeeper 的配置文件
+&lt;ul&gt;
+&lt;li&gt;dataDir：指定 ZooKeeper 存储数据的目录，默认为 /tmp/zookeeper&lt;/li&gt;
+&lt;li&gt;clientPort：指定客户端连接到 ZooKeeper 服务器的端口号，默认为 2181&lt;/li&gt;
+&lt;li&gt;tickTime：指定 ZooKeeper 服务器之间的心跳间隔时间（以毫秒为单位），默认为 2000&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption&gt;&lt;span&gt;命令行提示符 command:(&#34;[root@localhost] $&#34;:1&#34;)&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;set ZOOKEEPER_LOGS_PATH=C:\tmp\zookeeper&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;一开始，使用 &lt;span class=&#34;red&#34;&gt;Cryptocompare API&lt;/span&gt;，某些加密货币的实时价格将来自开源以及其他附加信息。 当我们启动并初始化多个 Kafka 生产者时，不同的价格信息将按其不同主题（其加密货币名称）分隔并存储在 Broker 上。 数据类型将从原始字典打包成字符串。 顾名思义，经纪人充当生产者和消费者之间信息的渠道。 在这个过程中，所有这些组件都需要向 Zookeeper 注册。 Kafka 集群使用 Zookeeper 来管理 Kafka 配置并选举领导者。 所有主题和代理之间的映射由 Zookeeper 维护。 而当 Consumer Group 发生变化时，就会进行重新平衡。 由于我们仅在一台 PC 上运行演示，因此未应用分区配置。&lt;/p&gt;
+&lt;p&gt;同时，Spark 作为 Consumer 获取 Broker 中的数据并转化为 Dstream。 假设有几个用时间序列号标记的 Dstream。 为了消除由于我们获取高频数据而产生的异常干扰，我们设置了一个过滤操作来选择合格的候选者。 如图 \ref {fig:so} 所示，原始 Dstream 被复制，以便一旦有新数据进来，就应该与前一个数据进行比较。 如果它们之间的值差小于 3&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;%&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\%&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.80556em;vertical-align:-0.05556em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;%&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，则可以允许进行进一步的操作，否则将被弃用。 经过初步选择后，对 Dstream 进行窗口操作。 窗口长度设置为 15 和 1 步幅。 可以看作是一个队列。 一旦有新数据进来，旧记录就会消失。 一定程度上解决了数据短缺的问题。 更多的输入数据可能会提高模型的预测性能。 然后，处理后的数据将被推送回 Broker，成为一个新的主题。&lt;/p&gt;
+&lt;p&gt;随后，该模型将从 Broker 获取数据作为新的 Consumer。 由于模型相对复杂，我们在利用模型进行预测时并没有完全采用流式处理。 我们没有使用 Spark MLlib 中的操作。 相反，从 Broker 中提取的数据将更改为 DataFrame 并由模型以正常方式读取。 最后，结果会形成折线图显示在前端页面。&lt;/p&gt;
+&lt;p&gt;此外，还初始化了另一组 Consumer 来代表不同加密货币的信息，以便在网站上显示价值。 消费者将数据类型从字符串恢复到原始字典。 重新整合字典的键后，将通过 WebSocket 传输到前端 HTML。 最后解析为 Json 格式进行可视化。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption&gt;&lt;span&gt;命令行提示符 command:(&#34;[root@localhost] $&#34;:1-5&#34;)&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;set ZOOKEEPER_LOGS_PATH=C:\tmp\zookeeper&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set KAFKA_LOGS_PATH=C:\tmp\kafka-logs&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set KAFKA_PATH=F:\kafka\kafka_2.12-3.1.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set ANACONDA_PATH=F:\anaconda3\envs\stream&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set THIS_PATH=C:\Users\81051\Desktop\code&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/stream_operations.png&#34; alt=&#34;&#34; title=&#34;流处理模块示意&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;media-container&#34;&gt;&lt;div class=&#34;player&#34; data-type=&#34;video&#34; data-src=&#39;[{&#34;url&#34;:&#34;/assets/stream_processing/demo.mp4&#34;}]&#39;&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h1 id=&#34;还能做的一些事情&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#还能做的一些事情&#34;&gt;#&lt;/a&gt; 还能做的一些事情&lt;/h1&gt;
 &lt;p&gt;总之，我们的应用 DRL 模型被证明在加密货币交易中是有效的，我们还利用 Kafka 流处理技术结合 Spark 来访问实时数据并实时处理它们。&lt;/p&gt;
 &lt;p&gt;至于以后的工作，还有很多可以做的推广。因为它可能涉及到很多我们没有经验的其他技术工具。尽管调查正在进行，但我们不会在这里讨论任何细节。相反，一些高层次的想法会被谈论，一些解释可能不准确和适当，道歉。&lt;/p&gt;
