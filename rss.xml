@@ -365,6 +365,27 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption&gt;&lt;span&gt;命令行提示符 command:(&#34;[root@localhost] $&#34;:1&#34;)&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;set ZOOKEEPER_LOGS_PATH=C:\tmp\zookeeper&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/zookeeper.png&#34; alt=&#34;Start and initialize Zookeeper&#34;&gt;&lt;br&gt;
+&lt;img data-src=&#34;/assets/stream_processing/kafka.png&#34; alt=&#34;Start and initialize Kafka&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/producer.png&#34; alt=&#34;Producer –&amp;gt; Kafka&#34;&gt;&lt;br&gt;
+&lt;img data-src=&#34;/assets/stream_processing/consumer.png&#34; alt=&#34;Consumer –&amp;gt; Spark Streaming&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;note danger&#34;&gt;
+&lt;p&gt;Kafka 和 Spark Dstream 之间的版本问题:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Spark 2.4 之后，没有针对 Spark Streaming 的更新（已弃用），这意味着两者之间没有 API。&lt;br&gt;
+ &lt;code&gt;from pyspark.streaming.kafka import KafkaUtils&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Structured Streaming 成为主流流处理数据结构&lt;/li&gt;
+&lt;li&gt;需要一个配置文件用于连接 Kafka 和 Spark Streaming，他的版本也关系到能否起到兼容效果。&lt;/li&gt;
+&lt;li&gt;此外还有需要注意的有
+&lt;ul&gt;
+&lt;li&gt;Py4J 的兼容性问题&lt;/li&gt;
+&lt;li&gt;Java JDK 的兼容性问题&lt;/li&gt;
+&lt;li&gt;高版本 Python 的兼容性问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/config.png&#34; alt=&#34;config&#34;&gt;&lt;/p&gt;
 &lt;p&gt;一开始，使用 &lt;span class=&#34;red&#34;&gt;Cryptocompare API&lt;/span&gt;，某些加密货币的实时价格将来自开源以及其他附加信息。 当我们启动并初始化多个 Kafka 生产者时，不同的价格信息将按其不同主题（其加密货币名称）分隔并存储在 Broker 上。 数据类型将从原始字典打包成字符串。 顾名思义，经纪人充当生产者和消费者之间信息的渠道。 在这个过程中，所有这些组件都需要向 Zookeeper 注册。 Kafka 集群使用 Zookeeper 来管理 Kafka 配置并选举领导者。 所有主题和代理之间的映射由 Zookeeper 维护。 而当 Consumer Group 发生变化时，就会进行重新平衡。 由于我们仅在一台 PC 上运行演示，因此未应用分区配置。&lt;/p&gt;
 &lt;p&gt;同时，Spark 作为 Consumer 获取 Broker 中的数据并转化为 Dstream。 假设有几个用时间序列号标记的 Dstream。 为了消除由于我们获取高频数据而产生的异常干扰，我们设置了一个过滤操作来选择合格的候选者。 如图 \ref {fig:so} 所示，原始 Dstream 被复制，以便一旦有新数据进来，就应该与前一个数据进行比较。 如果它们之间的值差小于 3&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;%&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\%&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.80556em;vertical-align:-0.05556em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;%&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，则可以允许进行进一步的操作，否则将被弃用。 经过初步选择后，对 Dstream 进行窗口操作。 窗口长度设置为 15 和 1 步幅。 可以看作是一个队列。 一旦有新数据进来，旧记录就会消失。 一定程度上解决了数据短缺的问题。 更多的输入数据可能会提高模型的预测性能。 然后，处理后的数据将被推送回 Broker，成为一个新的主题。&lt;/p&gt;
 &lt;p&gt;随后，该模型将从 Broker 获取数据作为新的 Consumer。 由于模型相对复杂，我们在利用模型进行预测时并没有完全采用流式处理。 我们没有使用 Spark MLlib 中的操作。 相反，从 Broker 中提取的数据将更改为 DataFrame 并由模型以正常方式读取。 最后，结果会形成折线图显示在前端页面。&lt;/p&gt;
