@@ -477,7 +477,7 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;使用 Tradingview API 在页面中嵌入了一个 JavaScript 应用程序，以显示有关许多加密货币的更多信息。实现更多的功能。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/tradingview.png&#34; alt=&#34;tradingview&#34; title=&#34;Tradingview API&#34; height=&#34;200px&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/assets/stream_processing/tradingview.png&#34; alt=&#34;tradingview&#34; title=&#34;Tradingview API&#34; height=&#34;80%&#34;&gt;&lt;/p&gt;
 &lt;p&gt;以下是 demo 视频展示&lt;/p&gt;
 &lt;div class=&#34;media-container&#34;&gt;&lt;div class=&#34;player&#34; data-type=&#34;video&#34; data-src=&#39;[{&#34;name&#34;:&#34;demo&#34;,&#34;url&#34;:&#34;/assets/stream_processing/demo.mp4&#34;}]&#39;&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;由于要快速传输实时数据，因此前端和后端之间的响应交互必须及时。因此，WebSocket 被用来解决这个问题。&lt;/p&gt;
