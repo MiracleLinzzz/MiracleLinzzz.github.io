@@ -429,8 +429,11 @@
 &lt;li&gt;方差是对给定数据点的模型预测的可变性，或是数据分布的评估值。具有高方差的模型非常关注训练数据，但对训练集中没有涵盖的新数据的概括能力差。因此，此类模型在训练数据上表现良好，但在测试数据上错误率很高，这意味着模型在训练数据上出现了过度拟合。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;由此，衍生出了模型训练的两个阶段：&lt;span class=&#34;label primary&#34;&gt;欠拟合阶段&lt;/span&gt;和&lt;span class=&#34;label primary&#34;&gt;过拟合阶段&lt;/span&gt;，常呈现 U 形图像，如下图所示&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/double_descent/u-curve.png&#34; alt=&#34;u-curve&#34; title=&#34;图1 U形测试误差&#34;&gt;&lt;/p&gt;
-&lt;p&gt;我们可以看到，训练数据上的小误差并不能保证测试数据上的高精度。虽然训练误差在整个训练过程中逐渐减小，但在欠拟合状态下，测试误差逐渐减小，而在过拟合状态下，测试误差逐渐增大&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+    &lt;img data-src=&#34;/assets/double_descent/u-curve.png&#34; alt=&#34;图片1&#34; width=&#34;50%&#34; title=&#34;经典机器学习中的风险曲线&#34; display=&#34;inline&#34;/&gt;
+    &lt;span class=&#34;image-info&#34;&gt;图1 U形测试误差&lt;/span&gt;
+&lt;/div&gt;
+我们可以看到，训练数据上的小误差并不能保证测试数据上的高精度。虽然训练误差在整个训练过程中逐渐减小，但在欠拟合状态下，测试误差逐渐减小，而在过拟合状态下，测试误差逐渐增大
 &lt;p&gt;然而，现代机器学习表明，测试误差不一定一直保持 U 形。当参数个数达到一定值时，测试误差依旧会减小。在整个测试过程中，误差曲线包含 2 条下降曲线。这种现象被称为&lt;span class=&#34;red&#34;&gt; “双下降”（Double Descent）&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;这个项目就将研究，误差风险曲线的形状随&lt;span class=&#34;label primary&#34;&gt;模型大小&lt;/span&gt;、&lt;span class=&#34;label primary&#34;&gt;训练次数&lt;/span&gt;、&lt;span class=&#34;label primary&#34;&gt;数据集&lt;/span&gt;以及&lt;span class=&#34;label primary&#34;&gt;其他训练操作&lt;/span&gt;变化而产生的影响。包含实验与分析，往下看吧&lt;/p&gt;
 &lt;h1 id=&#34;为什么双下降会发生&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#为什么双下降会发生&#34;&gt;#&lt;/a&gt; 为什么双下降会发生&lt;/h1&gt;
@@ -540,7 +543,10 @@ Cifar10 的 Batch Size 为 128。Fashion MNIST 的 Batch Size 为 100&lt;/p&gt;
 &lt;h1 id=&#34;实验结果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实验结果&#34;&gt;#&lt;/a&gt; 实验结果&lt;/h1&gt;
 &lt;h2 id=&#34;model-wise-double-descent&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#model-wise-double-descent&#34;&gt;#&lt;/a&gt; Model-wise Double Descent&lt;/h2&gt;
 &lt;p&gt;我们在自己的实验中重现了宽度方向的双下降现象。 与前文提到的在 Cifar10、Cifar100 和 MNIST 数据集上进行的实验不同，我们尝试在 Fashion MNIST 数据集上重现宽度方向双下降图。如下图&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/assets/double_descent/width_double_descent.png&#34; alt=&#34;Model-wise Double Descent&#34; title=&#34;图3 带有 20% 标签噪声的，基于 Fashion MNIST 数据集的Model-wise Double Descent&#34;&gt;&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+    &lt;img data-src=&#34;/assets/double_descent/width_double_descent.png&#34; alt=&#34;图片1&#34; width=&#34;50%&#34; title=&#34;经典机器学习中的风险曲线&#34; display=&#34;inline&#34;/&gt;
+    &lt;span class=&#34;image-info&#34;&gt;图3 带有 20% 标签噪声的，基于 Fashion MNIST 数据集的Model-wise Double Descent&lt;/span&gt;
+&lt;/div&gt;
 &lt;h2 id=&#34;epoch-wise-double-descent&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#epoch-wise-double-descent&#34;&gt;#&lt;/a&gt; Epoch-wise Double Descent&lt;/h2&gt;
 &lt;p&gt;我们将这些不同大小的模型，根据宽度 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;w&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.43056em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.02691em;&#34;&gt;w&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 不同，分别训练 1000 个 epoch。 根据结果，将这些模型分为四个不同的区域，在 1000 个 epoch 训练中具有不同的测试误差&lt;/p&gt;
 &lt;p&gt;每个区域的模型大小的具体图如图所示&lt;/p&gt;
