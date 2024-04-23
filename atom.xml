@@ -459,8 +459,8 @@ Generalization Error &amp;amp;= E[(y_i-{\hat{f}(x_i)})^2]\\
 &lt;h2 id=&#34;偏差-方差曲线&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#偏差-方差曲线&#34;&gt;#&lt;/a&gt; 偏差 - 方差曲线&lt;/h2&gt;
 &lt;p&gt;经典机器学习理论认为测试误差曲线应呈 U 形。一开始，偏差的下降幅度大于方差的上升幅度，从而导致风险曲线整体下降。继而，方差增加的速度快于偏差减少的速度，导致风险曲线增加。如图 1 所示&lt;/p&gt;
 &lt;div align=&#34;center&#34;&gt;
-    &lt;img data-src=&#34;/assets/double_descent/classic_risk_curve.png&#34; alt=&#34;图片1&#34; width=&#34;40%&#34; title=&#34;经典机器学习中的风险曲线&#34; display=&#34;inline&#34;/&gt;
-    &lt;img data-src=&#34;/assets/double_descent/modern_risk_curve.png&#34; alt=&#34;图片2&#34; width=&#34;40%&#34; title=&#34;现代机器学习中的风险曲线&#34;/&gt;
+    &lt;img data-src=&#34;/assets/double_descent/classic_risk_curve.png&#34; alt=&#34;图片1&#34; style=&#34;float: left width=&#34;40%&#34; title=&#34;经典机器学习中的风险曲线&#34; display=&#34;inline&#34;/&gt;
+    &lt;img data-src=&#34;/assets/double_descent/modern_risk_curve.png&#34; alt=&#34;图片2&#34; style=&#34;float: right width=&#34;40%&#34; title=&#34;现代机器学习中的风险曲线&#34;/&gt;
     &lt;span class=&#34;image-info&#34;&gt;图2 风险曲线&lt;/span&gt;
 &lt;/div&gt;
 &lt;p&gt;然而，现代机器学习理论认为，随着模型复杂度的增加，方差曲线会先增大，然后减小。在第一阶段，偏差减小的速度快于方差增加的速度，从而导致泛化误差的下降。在下一阶段，偏差的减少速度慢于方差的增加速度。导致泛化误差曲线增加。最后，在第三阶段，偏差和方差都下降，从而触发测试误差的下降。如图 2 所示&lt;/p&gt;
