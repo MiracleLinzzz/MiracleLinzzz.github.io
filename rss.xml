@@ -3,8 +3,8 @@
     <channel>
         <title>自是白衣卿相的博客</title>
         <subtitle></subtitle>
-        <icon>http://example.com/images/favicon.ico</icon>
-        <link>http://example.com</link>
+        <icon>http://m1racle.cn/images/favicon.ico</icon>
+        <link>http://m1racle.cn</link>
         <author>
           <name>Miralce</name>
         </author>
@@ -14,11 +14,11 @@
         <lastBuildDate>Sat, 24 Feb 2024 00:00:00 +0800</lastBuildDate>
         <category term="博客 笔记" />
         <item>
-            <guid isPermalink="true">http://example.com/projects/alzheimer/</guid>
+            <guid isPermalink="true">http://m1racle.cn/projects/alzheimer/</guid>
             <title>Alzheimer’s Disease Detection using Disfluencies Implemented Fine-Tuning BERT Model Ensemble</title>
-            <link>http://example.com/projects/alzheimer/</link>
-            <category term="科研项目" scheme="http://example.com/categories/projects/" />
-            <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
+            <link>http://m1racle.cn/projects/alzheimer/</link>
+            <category term="科研项目" scheme="http://m1racle.cn/categories/projects/" />
+            <category term="自然语言处理" scheme="http://m1racle.cn/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
             <pubDate>Sat, 24 Feb 2024 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;ol&gt;
 &lt;li&gt;背景介绍&lt;br&gt;
@@ -42,13 +42,13 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/travel/japan/food/</guid>
+            <guid isPermalink="true">http://m1racle.cn/travel/japan/food/</guid>
             <title>日本行美食总结</title>
-            <link>http://example.com/travel/japan/food/</link>
-            <category term="旅行日志" scheme="http://example.com/categories/travel/" />
-            <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
-            <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
-            <category term="唯有美食与爱不可辜负" scheme="http://example.com/tags/%E5%94%AF%E6%9C%89%E7%BE%8E%E9%A3%9F%E4%B8%8E%E7%88%B1%E4%B8%8D%E5%8F%AF%E8%BE%9C%E8%B4%9F/" />
+            <link>http://m1racle.cn/travel/japan/food/</link>
+            <category term="旅行日志" scheme="http://m1racle.cn/categories/travel/" />
+            <category term="日本跨年行" scheme="http://m1racle.cn/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
+            <category term="旅行" scheme="http://m1racle.cn/tags/%E6%97%85%E8%A1%8C/" />
+            <category term="唯有美食与爱不可辜负" scheme="http://m1racle.cn/tags/%E5%94%AF%E6%9C%89%E7%BE%8E%E9%A3%9F%E4%B8%8E%E7%88%B1%E4%B8%8D%E5%8F%AF%E8%BE%9C%E8%B4%9F/" />
             <pubDate>Sun, 04 Feb 2024 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;神户&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#神户&#34;&gt;#&lt;/a&gt; 神户&lt;/h1&gt;
 &lt;h2 id=&#34;くつろぎ家kutsurogiya&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#くつろぎ家kutsurogiya&#34;&gt;#&lt;/a&gt; くつろぎ家（Kutsurogiya）&lt;/h2&gt;
@@ -95,12 +95,12 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/travel/japan/route/</guid>
+            <guid isPermalink="true">http://m1racle.cn/travel/japan/route/</guid>
             <title>15天9城特种兵行程总结</title>
-            <link>http://example.com/travel/japan/route/</link>
-            <category term="旅行日志" scheme="http://example.com/categories/travel/" />
-            <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
-            <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
+            <link>http://m1racle.cn/travel/japan/route/</link>
+            <category term="旅行日志" scheme="http://m1racle.cn/categories/travel/" />
+            <category term="日本跨年行" scheme="http://m1racle.cn/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
+            <category term="旅行" scheme="http://m1racle.cn/tags/%E6%97%85%E8%A1%8C/" />
             <pubDate>Sun, 04 Feb 2024 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;關西&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#關西&#34;&gt;#&lt;/a&gt; 關西&lt;/h1&gt;
 &lt;p&gt;⌀ 1.21 神戶 DAY1&lt;/p&gt;
@@ -125,12 +125,12 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/projects/punch_go/</guid>
+            <guid isPermalink="true">http://m1racle.cn/projects/punch_go/</guid>
             <title>基于以太坊的『Punch Go』去中心化应用(DAPP)</title>
-            <link>http://example.com/projects/punch_go/</link>
-            <category term="科研项目" scheme="http://example.com/categories/projects/" />
-            <category term="区块链" scheme="http://example.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" />
-            <category term="开发" scheme="http://example.com/tags/%E5%BC%80%E5%8F%91/" />
+            <link>http://m1racle.cn/projects/punch_go/</link>
+            <category term="科研项目" scheme="http://m1racle.cn/categories/projects/" />
+            <category term="区块链" scheme="http://m1racle.cn/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" />
+            <category term="开发" scheme="http://m1racle.cn/tags/%E5%BC%80%E5%8F%91/" />
             <pubDate>Wed, 11 May 2022 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;背景介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景介绍&#34;&gt;#&lt;/a&gt; 背景介绍&lt;/h1&gt;
 &lt;p&gt;本项目的目标是开发一个去中心化应用 (DAPP) 平台，以促进打孔目标发起者和拥有类似目标的个人之间的联系。目标发起者将通过引入与目标相关的共享价值、设置参与存款要求和指定活动截止日期来发起打孔活动。平台用户可以访问所有正在进行或已经完成的打孔活动。如果活动正在进行，用户可以通过存款指定数量的加密货币来加入。为了保持在打孔活动中的积极性，用户必须每天打孔；如果失败，将导致他们的存款被没收。在每次打孔活动结束时，所有存款将平均分配给每天坚持打孔的用户。&lt;/p&gt;
@@ -202,15 +202,15 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/projects/stream_processing/</guid>
+            <guid isPermalink="true">http://m1racle.cn/projects/stream_processing/</guid>
             <title>用深度强化学习实时预测和交易加密货币</title>
-            <link>http://example.com/projects/stream_processing/</link>
-            <category term="科研项目" scheme="http://example.com/categories/projects/" />
-            <category term="强化学习" scheme="http://example.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" />
-            <category term="流处理" scheme="http://example.com/tags/%E6%B5%81%E5%A4%84%E7%90%86/" />
-            <category term="Kafka" scheme="http://example.com/tags/Kafka/" />
-            <category term="Zookeeper" scheme="http://example.com/tags/Zookeeper/" />
-            <category term="Spark" scheme="http://example.com/tags/Spark/" />
+            <link>http://m1racle.cn/projects/stream_processing/</link>
+            <category term="科研项目" scheme="http://m1racle.cn/categories/projects/" />
+            <category term="强化学习" scheme="http://m1racle.cn/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" />
+            <category term="流处理" scheme="http://m1racle.cn/tags/%E6%B5%81%E5%A4%84%E7%90%86/" />
+            <category term="Kafka" scheme="http://m1racle.cn/tags/Kafka/" />
+            <category term="Zookeeper" scheme="http://m1racle.cn/tags/Zookeeper/" />
+            <category term="Spark" scheme="http://m1racle.cn/tags/Spark/" />
             <pubDate>Sun, 08 May 2022 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;div class=&#34;note info&#34;&gt;
 &lt;p&gt;可以在此处找到项目的原代码 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL01pcmFjbGVMaW56enovS2Fma2FSZWFsVGltZUNyeXB0b2N1cnJlbmN5&#34;&gt;📍链接&lt;/span&gt;&lt;/p&gt;
@@ -420,12 +420,12 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/projects/double_descent/</guid>
+            <guid isPermalink="true">http://m1racle.cn/projects/double_descent/</guid>
             <title>探究不同场景下的双下降(Double Descent)现象</title>
-            <link>http://example.com/projects/double_descent/</link>
-            <category term="科研项目" scheme="http://example.com/categories/projects/" />
-            <category term="机器学习" scheme="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
-            <category term="Python" scheme="http://example.com/tags/Python/" />
+            <link>http://m1racle.cn/projects/double_descent/</link>
+            <category term="科研项目" scheme="http://m1racle.cn/categories/projects/" />
+            <category term="机器学习" scheme="http://m1racle.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
+            <category term="Python" scheme="http://m1racle.cn/tags/Python/" />
             <pubDate>Sun, 08 May 2022 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;背景介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景介绍&#34;&gt;#&lt;/a&gt; 背景介绍&lt;/h1&gt;
 &lt;p&gt;由于物理硬件算力的提升，基于较大规模神经网络的深度学习方式，因其令人满意的结果产出，成为这个时代的爆点研究方向。模型训练的好坏，除了正相关于模型本身隐藏层的构建，训练配置也至关重要&lt;/p&gt;
@@ -816,11 +816,11 @@ Cifar10 的 Batch Size 为 128。Fashion MNIST 的 Batch Size 为 100&lt;/p&gt;
 &lt;/table&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/neural_network/transformer/</guid>
+            <guid isPermalink="true">http://m1racle.cn/neural_network/transformer/</guid>
             <title>Transformer 备忘录</title>
-            <link>http://example.com/neural_network/transformer/</link>
-            <category term="神经网络" scheme="http://example.com/categories/neural-network/" />
-            <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
+            <link>http://m1racle.cn/neural_network/transformer/</link>
+            <category term="神经网络" scheme="http://m1racle.cn/categories/neural-network/" />
+            <category term="自然语言处理" scheme="http://m1racle.cn/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
             <pubDate>Wed, 13 Apr 2022 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;ol&gt;
 &lt;li&gt;
@@ -888,11 +888,11 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/travel/xinjiang/xinjiang/</guid>
+            <guid isPermalink="true">http://m1racle.cn/travel/xinjiang/xinjiang/</guid>
             <title>跨越山海|新疆自驾毕业旅行</title>
-            <link>http://example.com/travel/xinjiang/xinjiang/</link>
-            <category term="旅行日志" scheme="http://example.com/categories/travel/" />
-            <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
+            <link>http://m1racle.cn/travel/xinjiang/xinjiang/</link>
+            <category term="旅行日志" scheme="http://m1racle.cn/categories/travel/" />
+            <category term="旅行" scheme="http://m1racle.cn/tags/%E6%97%85%E8%A1%8C/" />
             <pubDate>Sun, 20 Jun 2021 00:00:00 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>

@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://example.com</id>
+    <id>http://m1racle.cn</id>
     <title>自是白衣卿相的博客</title>
     <subtitle></subtitle>
-    <icon>http://example.com/images/favicon.ico</icon>
-    <link href="http://example.com" />
+    <icon>http://m1racle.cn/images/favicon.ico</icon>
+    <link href="http://m1racle.cn" />
     <author>
       <name>Miralce</name>
     </author>
     <updated>2024-02-23T16:00:00.000Z</updated>
     <category term="博客 笔记" />
     <entry>
-        <id>http://example.com/projects/alzheimer/</id>
+        <id>http://m1racle.cn/projects/alzheimer/</id>
         <title>Alzheimer’s Disease Detection using Disfluencies Implemented Fine-Tuning BERT Model Ensemble</title>
-        <link rel="alternate" href="http://example.com/projects/alzheimer/"/>
+        <link rel="alternate" href="http://m1racle.cn/projects/alzheimer/"/>
         <content type="html">&lt;ol&gt;
 &lt;li&gt;背景介绍&lt;br&gt;
 使用原始的、未注释的、未转录的语音进行目标认知状态预测，并解决认知随时间变化的预测。&lt;/li&gt;
@@ -34,14 +34,14 @@
 &lt;p&gt;更好的解决方案:&lt;br&gt;
  结合声学和语言特征，利用预训练 BERT 模型。&lt;/p&gt;
 </content>
-        <category term="科研项目" scheme="http://example.com/categories/projects/" />
-        <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
+        <category term="科研项目" scheme="http://m1racle.cn/categories/projects/" />
+        <category term="自然语言处理" scheme="http://m1racle.cn/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
         <updated>2024-02-23T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/travel/japan/food/</id>
+        <id>http://m1racle.cn/travel/japan/food/</id>
         <title>日本行美食总结</title>
-        <link rel="alternate" href="http://example.com/travel/japan/food/"/>
+        <link rel="alternate" href="http://m1racle.cn/travel/japan/food/"/>
         <content type="html">&lt;h1 id=&#34;神户&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#神户&#34;&gt;#&lt;/a&gt; 神户&lt;/h1&gt;
 &lt;h2 id=&#34;くつろぎ家kutsurogiya&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#くつろぎ家kutsurogiya&#34;&gt;#&lt;/a&gt; くつろぎ家（Kutsurogiya）&lt;/h2&gt;
 &lt;p&gt;网红的平价米其林（2016 年米其林推荐），招牌釜饭确实好吃 &lt;strong&gt;『くつろぎ釜飯』&lt;/strong&gt;，内涵鲷鱼鲑鱼章鱼及蔬菜，味道很有层次。网红的蒸和牛 **『湯けむり蒸し』** 是牛肉与蔬菜在小蒸笼里现场蒸制，本身没有调味，即便有酱料蘸碟还是觉得乏善可陈。当地人基本都只点釜饭，点和牛的都是游客。有小碟点心小菜，杏仁豆腐什么的。冬季限定有牡蛎釜饭。&lt;/p&gt;
@@ -85,16 +85,16 @@
 &lt;p&gt;京阪三条駅 徒歩 5 分 日式风格餐厅&lt;/p&gt;
 &lt;p&gt;有中英文菜单 支持信用卡 现场排队需要先门口填名字再排队&lt;/p&gt;
 </content>
-        <category term="旅行日志" scheme="http://example.com/categories/travel/" />
-        <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
-        <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
-        <category term="唯有美食与爱不可辜负" scheme="http://example.com/tags/%E5%94%AF%E6%9C%89%E7%BE%8E%E9%A3%9F%E4%B8%8E%E7%88%B1%E4%B8%8D%E5%8F%AF%E8%BE%9C%E8%B4%9F/" />
+        <category term="旅行日志" scheme="http://m1racle.cn/categories/travel/" />
+        <category term="日本跨年行" scheme="http://m1racle.cn/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
+        <category term="旅行" scheme="http://m1racle.cn/tags/%E6%97%85%E8%A1%8C/" />
+        <category term="唯有美食与爱不可辜负" scheme="http://m1racle.cn/tags/%E5%94%AF%E6%9C%89%E7%BE%8E%E9%A3%9F%E4%B8%8E%E7%88%B1%E4%B8%8D%E5%8F%AF%E8%BE%9C%E8%B4%9F/" />
         <updated>2024-02-03T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/travel/japan/route/</id>
+        <id>http://m1racle.cn/travel/japan/route/</id>
         <title>15天9城特种兵行程总结</title>
-        <link rel="alternate" href="http://example.com/travel/japan/route/"/>
+        <link rel="alternate" href="http://m1racle.cn/travel/japan/route/"/>
         <content type="html">&lt;h1 id=&#34;關西&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#關西&#34;&gt;#&lt;/a&gt; 關西&lt;/h1&gt;
 &lt;p&gt;⌀ 1.21 神戶 DAY1&lt;/p&gt;
 &lt;p&gt;厦门高崎机场 --&amp;gt; 大阪关西机场&lt;/p&gt;
@@ -116,15 +116,15 @@
 &lt;p&gt;⌀ 登別 DAY4&lt;/p&gt;
 &lt;p&gt;⌀ 函館 DAY5&lt;/p&gt;
 </content>
-        <category term="旅行日志" scheme="http://example.com/categories/travel/" />
-        <category term="日本跨年行" scheme="http://example.com/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
-        <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
+        <category term="旅行日志" scheme="http://m1racle.cn/categories/travel/" />
+        <category term="日本跨年行" scheme="http://m1racle.cn/categories/travel/%E6%97%A5%E6%9C%AC%E8%B7%A8%E5%B9%B4%E8%A1%8C/" />
+        <category term="旅行" scheme="http://m1racle.cn/tags/%E6%97%85%E8%A1%8C/" />
         <updated>2024-02-03T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/projects/punch_go/</id>
+        <id>http://m1racle.cn/projects/punch_go/</id>
         <title>基于以太坊的『Punch Go』去中心化应用(DAPP)</title>
-        <link rel="alternate" href="http://example.com/projects/punch_go/"/>
+        <link rel="alternate" href="http://m1racle.cn/projects/punch_go/"/>
         <content type="html">&lt;h1 id=&#34;背景介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景介绍&#34;&gt;#&lt;/a&gt; 背景介绍&lt;/h1&gt;
 &lt;p&gt;本项目的目标是开发一个去中心化应用 (DAPP) 平台，以促进打孔目标发起者和拥有类似目标的个人之间的联系。目标发起者将通过引入与目标相关的共享价值、设置参与存款要求和指定活动截止日期来发起打孔活动。平台用户可以访问所有正在进行或已经完成的打孔活动。如果活动正在进行，用户可以通过存款指定数量的加密货币来加入。为了保持在打孔活动中的积极性，用户必须每天打孔；如果失败，将导致他们的存款被没收。在每次打孔活动结束时，所有存款将平均分配给每天坚持打孔的用户。&lt;/p&gt;
 &lt;p&gt;我们的项目旨在建立目标发起者和目标追逐者之间的联系，使我们的用户能够在获得金钱奖励的同时实现目标；同时，那些缺乏毅力的人将面临后果。&lt;/p&gt;
@@ -193,15 +193,15 @@
 &lt;p&gt;我们项目的意义在于将拥有相同目标的人们联系在一起。我们使用 Node.js, React 和 Solidity 开发了一个 DAPP 平台，使不同的人之间能够进行共享价值的交流。平台功能包括显示正在进行的冲孔活动进度和完成的冲孔目标的仪表板，启动冲孔活动并提供发起者输入信息，冲孔活动完成后向目标实现者发送费用。&lt;/p&gt;
 &lt;p&gt;对于未来的工作，我们的目标是增加功能，使我们的平台更容易使用，并具有更丰富的功能。完善监督机制，加强制度安全是我们的首要任务。解决活动被恶意方控制的风险对于保护其他用户非常重要。我们计划为那些认为自己的打卡被拒绝时应该被批准的用户增加申诉机制的功能。此外，给别人打卡 “拒绝” 标签的用户也应该在我们 DAPP 的未来版本中说明他们的理由。另外，我们计划增加活动发起者每天设置一些任务，要求参与者打卡的功能。&lt;/p&gt;
 </content>
-        <category term="科研项目" scheme="http://example.com/categories/projects/" />
-        <category term="区块链" scheme="http://example.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" />
-        <category term="开发" scheme="http://example.com/tags/%E5%BC%80%E5%8F%91/" />
+        <category term="科研项目" scheme="http://m1racle.cn/categories/projects/" />
+        <category term="区块链" scheme="http://m1racle.cn/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" />
+        <category term="开发" scheme="http://m1racle.cn/tags/%E5%BC%80%E5%8F%91/" />
         <updated>2022-05-10T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/projects/stream_processing/</id>
+        <id>http://m1racle.cn/projects/stream_processing/</id>
         <title>用深度强化学习实时预测和交易加密货币</title>
-        <link rel="alternate" href="http://example.com/projects/stream_processing/"/>
+        <link rel="alternate" href="http://m1racle.cn/projects/stream_processing/"/>
         <content type="html">&lt;div class=&#34;note info&#34;&gt;
 &lt;p&gt;可以在此处找到项目的原代码 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL01pcmFjbGVMaW56enovS2Fma2FSZWFsVGltZUNyeXB0b2N1cnJlbmN5&#34;&gt;📍链接&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -408,18 +408,18 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="科研项目" scheme="http://example.com/categories/projects/" />
-        <category term="强化学习" scheme="http://example.com/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" />
-        <category term="流处理" scheme="http://example.com/tags/%E6%B5%81%E5%A4%84%E7%90%86/" />
-        <category term="Kafka" scheme="http://example.com/tags/Kafka/" />
-        <category term="Zookeeper" scheme="http://example.com/tags/Zookeeper/" />
-        <category term="Spark" scheme="http://example.com/tags/Spark/" />
+        <category term="科研项目" scheme="http://m1racle.cn/categories/projects/" />
+        <category term="强化学习" scheme="http://m1racle.cn/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" />
+        <category term="流处理" scheme="http://m1racle.cn/tags/%E6%B5%81%E5%A4%84%E7%90%86/" />
+        <category term="Kafka" scheme="http://m1racle.cn/tags/Kafka/" />
+        <category term="Zookeeper" scheme="http://m1racle.cn/tags/Zookeeper/" />
+        <category term="Spark" scheme="http://m1racle.cn/tags/Spark/" />
         <updated>2022-05-07T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/projects/double_descent/</id>
+        <id>http://m1racle.cn/projects/double_descent/</id>
         <title>探究不同场景下的双下降(Double Descent)现象</title>
-        <link rel="alternate" href="http://example.com/projects/double_descent/"/>
+        <link rel="alternate" href="http://m1racle.cn/projects/double_descent/"/>
         <content type="html">&lt;h1 id=&#34;背景介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#背景介绍&#34;&gt;#&lt;/a&gt; 背景介绍&lt;/h1&gt;
 &lt;p&gt;由于物理硬件算力的提升，基于较大规模神经网络的深度学习方式，因其令人满意的结果产出，成为这个时代的爆点研究方向。模型训练的好坏，除了正相关于模型本身隐藏层的构建，训练配置也至关重要&lt;/p&gt;
 &lt;p&gt;朴素的思想是希望在可行的条件下，训练结果能在测试数据集中得到一个尽量趋近于完美的结果，并且这个结果可以有效的继承到测试数据集中&lt;/p&gt;
@@ -807,15 +807,15 @@ Cifar10 的 Batch Size 为 128。Fashion MNIST 的 Batch Size 为 100&lt;/p&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;</content>
-        <category term="科研项目" scheme="http://example.com/categories/projects/" />
-        <category term="机器学习" scheme="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
-        <category term="Python" scheme="http://example.com/tags/Python/" />
+        <category term="科研项目" scheme="http://m1racle.cn/categories/projects/" />
+        <category term="机器学习" scheme="http://m1racle.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" />
+        <category term="Python" scheme="http://m1racle.cn/tags/Python/" />
         <updated>2022-05-07T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/neural_network/transformer/</id>
+        <id>http://m1racle.cn/neural_network/transformer/</id>
         <title>Transformer 备忘录</title>
-        <link rel="alternate" href="http://example.com/neural_network/transformer/"/>
+        <link rel="alternate" href="http://m1racle.cn/neural_network/transformer/"/>
         <content type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;为什么选择 Transformer&lt;br&gt;
@@ -880,17 +880,17 @@ tanh 和 sigmoid 的双边区域会饱和，导致导数趋于 0，有梯度消�
 &lt;/li&gt;
 &lt;/ol&gt;
 </content>
-        <category term="神经网络" scheme="http://example.com/categories/neural-network/" />
-        <category term="自然语言处理" scheme="http://example.com/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
+        <category term="神经网络" scheme="http://m1racle.cn/categories/neural-network/" />
+        <category term="自然语言处理" scheme="http://m1racle.cn/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" />
         <updated>2022-04-12T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/travel/xinjiang/xinjiang/</id>
+        <id>http://m1racle.cn/travel/xinjiang/xinjiang/</id>
         <title>跨越山海|新疆自驾毕业旅行</title>
-        <link rel="alternate" href="http://example.com/travel/xinjiang/xinjiang/"/>
+        <link rel="alternate" href="http://m1racle.cn/travel/xinjiang/xinjiang/"/>
         <content type="html"></content>
-        <category term="旅行日志" scheme="http://example.com/categories/travel/" />
-        <category term="旅行" scheme="http://example.com/tags/%E6%97%85%E8%A1%8C/" />
+        <category term="旅行日志" scheme="http://m1racle.cn/categories/travel/" />
+        <category term="旅行" scheme="http://m1racle.cn/tags/%E6%97%85%E8%A1%8C/" />
         <updated>2021-06-19T16:00:00.000Z</updated>
     </entry>
 </feed>
